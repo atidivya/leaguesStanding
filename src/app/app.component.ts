@@ -31,6 +31,11 @@ export class AppComponent implements OnInit{
   requestID: any;
   standingDetails:any;
   currentLeague: any;
+  teamID: any;
+  players:any;
+  teamFlag:any;
+  teamList:any;
+  teamName:any;
 
  
 
@@ -65,6 +70,27 @@ export class AppComponent implements OnInit{
     })
   }
 
+  getTeamID(id: any):void {
+    //console.log(id);
+    this.teamID = id;
+    this.http.get(this.apiURL + '/teams/'+ this.teamID + '?'+ this.apiToken + '&include=squad')
+      .map((res: Response) => res.json())
+      .subscribe(teamDetails => {
+        //console.log(teamDetails);
+        //this.players = teamDetails.data;
+        //console.log(this.players);
+        this.teamName = teamDetails.data.name;
+        this.teamFlag = teamDetails.data.logo_path;
+        //console.log(this.teamFlag);
+        this.players = teamDetails.data.squad.data;
+        //console.log(this.players);
+
+      });
+
+    
+
+  }
+
   getID(id: any):void {
     
     //console.log(id);
@@ -84,7 +110,7 @@ export class AppComponent implements OnInit{
         .subscribe(currentStandings => {
           //console.log(currentStandings);
           this.standingDetails = currentStandings.data[0].standings.data;
-          console.log(this.standingDetails);
+          //console.log(this.standingDetails);
         })
         
       });

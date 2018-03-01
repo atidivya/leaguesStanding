@@ -29,7 +29,14 @@
       <tbody>
         <tr *ngFor="let standingDetail of standingDetails">
           <th scope="row">{{standingDetail.position}}</th>
-          <td><a href="#" data-toggle="modal" data-target="#modalRegister"> {{standingDetail.team_name}}</a></td>
+          <td><a href="#" 
+                data-toggle="modal" 
+                data-target="#modalRegister"
+                (click)="getTeamID(standingDetail.team_id)"
+                > 
+                {{standingDetail.team_name}}
+              </a>
+          </td>
           <td>{{standingDetail.overall.games_played}}</td>
           <td>{{standingDetail.overall.won}}</td>
           <td>{{standingDetail.overall.draw}}</td>
@@ -56,7 +63,26 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                      <h2>Player Info</h2>
+                      <h2>Team {{teamName}}</h2>
+                      
+                      <img src="{{teamFlag}}">
+                      <table  class="table">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">Player Number</th>
+                              <th scope="col">Appearences</th>
+                              <th scope="col">Goals</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let player of players">
+                              <th scope="row">{{player.number}}</th>
+                              <td>{{player.appearences}}</td>
+                              <td>{{player.goals}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
