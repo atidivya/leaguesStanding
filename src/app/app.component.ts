@@ -16,9 +16,13 @@ export class AppComponent implements OnInit{
       $(function (){
         $('#dt').DataTable();
       });
-    }, 8000);
+    }, 9000);
+
+
     
   }
+
+
 
    
   leagues: any;

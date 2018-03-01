@@ -29,7 +29,7 @@
       <tbody>
         <tr *ngFor="let standingDetail of standingDetails">
           <th scope="row">{{standingDetail.position}}</th>
-          <td>{{standingDetail.team_name}}</td>
+          <td><a href="#" data-toggle="modal" data-target="#modalRegister"> {{standingDetail.team_name}}</a></td>
           <td>{{standingDetail.overall.games_played}}</td>
           <td>{{standingDetail.overall.won}}</td>
           <td>{{standingDetail.overall.draw}}</td>
@@ -40,7 +40,35 @@
         </tr>
       </tbody>
     </table>
-    
+
+
+        
+        
+        
+        <!-- Modal -->
+
+
+        <div id="modalRegister" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <h2>Player Info</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  
+    <!-- Model View -->
+
+    <!-- End -->
 
 
    
