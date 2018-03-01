@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('leagues-standings App', () => {
+describe('sports-wiki App', () => {
   let page: AppPage;
 
   beforeEach(() => {
