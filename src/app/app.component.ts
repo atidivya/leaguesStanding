@@ -1,19 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
+declare var $;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
+
+  ngOnInit(): void {
+    setTimeout(function (){
+      $(function (){
+        $('#dt').DataTable();
+      });
+    }, 8000);
+    
+  }
+
+   
   leagues: any;
   seasons: any;
   newID: any;
   requestID: any;
   standingDetails:any;
   currentLeague: any;
+
+ 
+
+ 
  
 
   apiURL = 'https://soccer.sportmonks.com/api/v2.0';
@@ -78,6 +95,7 @@ export class AppComponent {
     //this.requestID = this.leagues.id;
     
   }
+
 
 
 
