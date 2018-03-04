@@ -27,7 +27,7 @@
       <th scope="row">{{team.position}}</th>
       <td><a href="#" 
              data-toggle="modal" 
-             data-target="#modalRegister"
+             data-target="#modalTeamInfo"
              (click)="getTeamId(team.team_id)"
           > 
           {{team.team_name}}
@@ -47,7 +47,7 @@
   <!-- Modal -->
 
 
-  <div id="modalRegister" class="modal fade" role="dialog">
+  <div id="modalTeamInfo" class="modal fade" role="dialog">
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
