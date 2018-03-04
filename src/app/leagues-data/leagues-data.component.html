@@ -1,0 +1,87 @@
+<button (click)="searchLeagues()">Get Current Leagues</button>
+<br/>
+<select #selectElem (change)="getLeagueID(selectElem.value)">
+        <option selected>Select..</option>
+  <option *ngFor="let league of leagues" [value]="league.id">
+      {{league.name}}
+  </option>
+</select>
+<br/>
+
+<table id="dt" class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Team Name</th>
+      <th scope="col">Played</th>
+      <th scope="col">Won</th>
+      <th scope="col">Drawn</th>
+      <th scope="col">Lost</th>
+      <th scope="col">Goal</th>
+      <th scope="col">Difference</th>
+      <th scope="col">Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of teams">
+      <th scope="row">{{team.position}}</th>
+      <td><a href="#" 
+             data-toggle="modal" 
+             data-target="#modalRegister"
+             (click)="getTeamId(team.team_id)"
+          > 
+          {{team.team_name}}
+          </a>
+      </td>
+      <td>{{team.overall.games_played}}</td>
+      <td>{{team.overall.won}}</td>
+      <td>{{team.overall.draw}}</td>
+      <td>{{team.overall.lost}}</td>
+      <td>{{team.overall.goals_scored}}</td>
+      <td>{{team.total.goal_difference}}</td>
+      <td>{{team.total.points}}</td>
+    </tr>
+  </tbody>
+</table>
+
+  <!-- Modal -->
+
+
+  <div id="modalRegister" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <h2>Team {{teamName}}</h2>
+                
+                <img src="{{teamFlag}}">
+                <table  class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Player Number</th>
+                        <th scope="col">Appearences</th>
+                        <th scope="col">Goals</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let player of players">
+                        <th scope="row">{{player.number}}</th>
+                        <td>{{player.appearences}}</td>
+                        <td>{{player.goals}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+<!-- Model View -->
