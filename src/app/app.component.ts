@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
       $(function (){
         $('#dt').DataTable();
       });
-    }, 9000);
+    }, 8000);
 
 
     
